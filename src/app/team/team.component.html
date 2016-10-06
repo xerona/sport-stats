@@ -1,0 +1,4 @@
+<a [routerLink]="'/'+this.routeData.apiRoute">Back</a>
+<div *ngFor="let player of players$ | async">
+    {{player.first_name}} {{player.last_name}}
+</div>

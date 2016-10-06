@@ -1,0 +1,6 @@
+<a routerLink="/">Back</a>
+<div *ngFor="let team of teams$ | async">
+    <a [routerLink]="'players/'+team.slug">
+        {{team.name}}: {{team.nickname}}
+    </a>
+</div>
