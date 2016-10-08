@@ -1,3 +1,17 @@
-<h1>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <ul class="nav navbar-nav">
+            <li *ngFor="let sport of sports"
+                role="presentation"
+                routerLinkActive="active"
+                [routerLinkActiveOptions]="{exact:true}">
+                <a [routerLink]="sport.path">{{sport.name}}</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+<div class="container">
     <router-outlet></router-outlet>
-</h1>
+</div>

@@ -1,4 +1,62 @@
-<a [routerLink]="'/'+this.routeData.apiRoute">Back</a>
-<div *ngFor="let player of players$ | async">
-    {{player.first_name}} {{player.last_name}}
+<div class="row">
+    <a [routerLink]="'/'+this.routeData.apiRoute">Back</a>
 </div>
+<div *ngFor="let player of players$ | async" class="col-md-4 col-sm-6 col-xs-12">
+    <div class="panel panel-primary">
+        <div class="panel-heading" >{{player.first_name}} {{player.last_name}}</div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <td>
+                            Statistic
+                        </td>
+                        <td>
+                            Value
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Active</td>
+                        <td>{{player.active}}</td>
+                    </tr>
+                    <tr>
+                        <td>Date Of Birth</td>
+                        <td>{{player.birth_date | date: 'shortDate'}}</td>
+                    </tr>
+                    <tr>
+                        <td>Height</td>
+                        <td>{{player.height}} {{player.inches}}</td>
+                        <!-- TODO: practice pipe for height?  -->
+                    </tr>
+                    <tr>
+                        <td>Position</td>
+                        <td>{{player.position_name}} ({{player.position_abbreviation}})</td>
+                    </tr>
+                    <tr>
+                        <td>Salary</td>
+                        <td>{{player.salary}} {{player.salary_currency}}</td>
+                    </tr>
+                    <tr>
+                        <td>Humanized Salary</td>
+                        <td>{{player.humanized_salary}} {{player.salary_currency}}</td>
+                    </tr>
+                    <tr>
+                        <td>School</td>
+                        <td>{{player.school}}</td>
+                    </tr>
+                    <tr>
+                        <td>Weight</td>
+                        <td>{{player.weight}} {{player.unit_of_weight}}</td>
+                    </tr>
+                    <tr>
+                        <td>Years of Experience</td>
+                        <td>{{player.years_of_experience}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+</div>
+<!-- TODO:
+        add pagination
+-->
