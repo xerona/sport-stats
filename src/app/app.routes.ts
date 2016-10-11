@@ -24,10 +24,58 @@ const routes: Routes = [
     {path: FOOTBALL, component: SportComponent, data: {apiRoute: FOOTBALL}},
     {path: HOCKEY, component: SportComponent, data: {apiRoute: HOCKEY}},
 
-    {path: `${BASEBALL}/players/:slug`, component: TeamComponent, data: {apiRoute: BASEBALL}},
-    {path: `${BASKETBALL}/players/:slug`, component: TeamComponent, data: {apiRoute: BASKETBALL}},
-    {path: `${FOOTBALL}/players/:slug`, component: TeamComponent, data: {apiRoute: FOOTBALL}},
-    {path: `${HOCKEY}/players/:slug`, component: TeamComponent, data: {apiRoute: HOCKEY}}
+    {
+        path: `${BASEBALL}/players/:slug`,
+        children: [{
+            path: ':page',
+            component: TeamComponent,
+            data: {apiRoute: BASEBALL}
+        }, {
+            path: '',
+            redirectTo: '1',
+            component: TeamComponent,
+            data: {apiRoute: BASEBALL}
+        }]
+    },
+    {
+        path: `${BASKETBALL}/players/:slug`,
+        children: [{
+            path: ':page',
+            component: TeamComponent,
+            data: {apiRoute: BASKETBALL}
+        }, {
+            path: '',
+            redirectTo: '1',
+            component: TeamComponent,
+            data: {apiRoute: BASKETBALL}
+        }]
+    },
+    {
+        path: `${FOOTBALL}/players/:slug`,
+        children: [{
+            path: ':page',
+            component: TeamComponent,
+            data: {apiRoute: FOOTBALL}
+        }, {
+            path: '',
+            redirectTo: '1',
+            component: TeamComponent,
+            data: {apiRoute: FOOTBALL}
+        }]
+    },
+    {
+        path: `${HOCKEY}/players/:slug`,
+        children: [{
+            path: ':page',
+            component: TeamComponent,
+            data: {apiRoute: HOCKEY}
+        }, {
+            path: '',
+            redirectTo: '1',
+            component: TeamComponent,
+            data: {apiRoute: HOCKEY}
+        }]
+    }
 ];
 
 export default RouterModule.forRoot(routes);

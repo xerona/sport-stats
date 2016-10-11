@@ -1,5 +1,9 @@
+<ol class="breadcrumb">
+  <li><a routerLink="/">Home</a></li>
+  <li class="active">Teams</li>
+</ol>
 <div *ngFor="let team of teams$ | async" class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
     <a [routerLink]="'players/'+team.slug">
-        {{team.name}}: {{team.nickname}}
+        {{team.location}}: {{team.nickname}}
     </a>
 </div>
