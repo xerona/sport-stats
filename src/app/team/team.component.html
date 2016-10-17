@@ -8,14 +8,13 @@
         {{player.name}}
     </a>
 </div>
-<div class="col-sm-12">
+<div *ngIf="players$ | async" class="col-sm-12">
     <nav aria-label="...">
       <ul class="pager">
-        <li><a (click)="previous()">Previous</a></li>
-        <li><a (click)="next()">Next</a></li>
+        <li *ngIf="page > 1"><a (click)="previous()">Previous</a></li>
+        <li *ngFor="let n of next$ | async">
+            <a (click)="next()">Next</a>
+        </li>
       </ul>
     </nav>
 </div>
-<!-- TODO:
-        add pagination
--->

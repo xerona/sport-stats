@@ -1,19 +1,19 @@
 import { Component } from '@angular/core';
-import { BASEBALL, BASKETBALL, FOOTBALL, HOCKEY } from './api.ts';
+import { BASEBALL, BASKETBALL, FOOTBALL, HOCKEY } from './api';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-    sports: {name: string, path: string}[];
-    constructor () {
+    sports: { name: string, path: string }[];
+    constructor() {
         this.sports = [
-            {name: 'Baseball', path: BASEBALL},
-            {name: 'Basketball', path: BASKETBALL},
-            {name: 'Football', path: FOOTBALL},
-            {name: 'Hockey', path: HOCKEY},
+            { name: 'Baseball', path: BASEBALL },
+            { name: 'Basketball', path: BASKETBALL },
+            { name: 'Football', path: FOOTBALL },
+            { name: 'Hockey', path: HOCKEY },
         ];
     }
 }

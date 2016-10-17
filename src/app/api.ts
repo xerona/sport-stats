@@ -6,9 +6,9 @@ export const HEADERS: Headers = new Headers({
     'Accept': 'application/vnd.stattleship.com; version=1'
 });
 
-export const API_ROOT: string = 'https://api.stattleship.com/';
+export const API_ROOT = 'https://api.stattleship.com/';
 
-export const BASEBALL: string = 'baseball/mlb';
-export const BASKETBALL: string = 'basketball/nba';
-export const FOOTBALL: string = 'football/nfl';
-export const HOCKEY: string = 'hockey/nhl';
+export const BASEBALL = 'baseball/mlb';
+export const BASKETBALL = 'basketball/nba';
+export const FOOTBALL = 'football/nfl';
+export const HOCKEY = 'hockey/nhl';
