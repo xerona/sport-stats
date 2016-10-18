@@ -1,32 +1,40 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Http } from '@angular/http';
-import 'rxjs/add/operator/map';
-
-import { HEADERS, API_ROOT } from '../api';
+import { StatsService } from '../shared/stats.service';
 
 
 @Component({
     selector: 'app-sport',
     templateUrl: './sport.component.html',
-    styleUrls: ['./sport.component.scss']
+    styleUrls: ['./sport.component.scss'],
+    providers: [StatsService]
 })
 export class SportComponent implements OnInit {
 
     routeData: { apiRoute?: string };
+
+    sport: string;
+
     teams$;
 
-    constructor(private route: ActivatedRoute, private http: Http) {
+    constructor(
+        private route: ActivatedRoute,
+        private statsService: StatsService
+    ) {
+        this.parseRouterData(route);
+        this.fetchTemplateData();
+    }
+
+    parseRouterData(route: ActivatedRoute): void {
         route.data.subscribe((d) => {
             this.routeData = d;
         });
-        this.teams$ = http.get(`${API_ROOT}${this.routeData.apiRoute}/teams`, { headers: HEADERS })
-            .map(res => res.json())
-            .map(json => json.teams);
-
+        this.sport = this.routeData.apiRoute;
     }
 
-    ngOnInit() {
+    fetchTemplateData(): void {
+        this.teams$ = this.statsService.teams(this.sport);
     }
 
+    ngOnInit() { }
 }

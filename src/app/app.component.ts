@@ -9,6 +9,10 @@ import { BASEBALL, BASKETBALL, FOOTBALL, HOCKEY } from './api';
 export class AppComponent {
     sports: { name: string, path: string }[];
     constructor() {
+        /* TODO:
+         *   I think this can be service.
+         *   Research that.
+         */
         this.sports = [
             { name: 'Baseball', path: BASEBALL },
             { name: 'Basketball', path: BASKETBALL },

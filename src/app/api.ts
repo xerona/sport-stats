@@ -1,3 +1,6 @@
+/* TODO:
+ *   Remove now that service exists.
+ */
 import { Headers } from '@angular/http';
 
 export const HEADERS: Headers = new Headers({
