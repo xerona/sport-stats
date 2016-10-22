@@ -2,8 +2,10 @@
   <li><a routerLink="/">Home</a></li>
   <li class="active">Teams</li>
 </ol>
-<div *ngFor="let team of teams$ | async" class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-    <a [routerLink]="'players/'+team.slug">
-        {{team.location}}: {{team.nickname}}
-    </a>
+<div data-team-container>
+    <div *ngFor="let team of teams$ | async" class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+        <a [routerLink]="'/'+sport+'/players/'+team.slug" data-team-link>
+            {{team.location}}: {{team.nickname}}
+        </a>
+    </div>
 </div>

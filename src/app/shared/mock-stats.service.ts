@@ -11,7 +11,7 @@ export class MockStatsService {
     constructor() { }
 
     teams(sport: string) {
-        return Observable.from(teams);
+        return Observable.from([teams]);
     }
 
     players(sport: string, team: string, page: number) {
@@ -21,14 +21,14 @@ export class MockStatsService {
 
     morePlayers(sport: string, team: string, page: number) {
         const index = +page;
-        if (players.length >= index) {
+        if (players.length <= index) {
             return Observable.from([]);
         }
         return Observable.from([players[index]]);
     }
 
     player(sport: string, team: string, page: number, playerSlug: string) {
-        return Observable.from(player);
+        return Observable.from([player]);
     }
 
 };

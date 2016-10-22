@@ -3,7 +3,6 @@
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ActivatedRoute } from '@angular/router';
-import { HttpModule }      from '@angular/http';
 
 import { TeamComponent } from './team.component';
 import { getActivatedRouteValue } from '../shared/test-activated-route';
@@ -17,8 +16,7 @@ const makeTestBed = (page: number) => {
             TeamComponent,
         ],
         imports: [
-            RouterTestingModule,
-            HttpModule
+            RouterTestingModule
         ],
         providers: [{
             provide: ActivatedRoute, useValue: getActivatedRouteValue({
@@ -35,7 +33,7 @@ const makeTestBed = (page: number) => {
 
 describe('App: SportStats', () => {
 
-    it('should create the compnent', async(() => {
+    it('should create the component', async(() => {
         makeTestBed(1);
         let fixture = TestBed.createComponent(TeamComponent);
         let app = fixture.debugElement.componentInstance;
@@ -54,10 +52,48 @@ describe('App: SportStats', () => {
         const page = 1;
         makeTestBed(page);
         let fixture = TestBed.createComponent(TeamComponent);
+        fixture.detectChanges();
+        let compiled = fixture.debugElement.nativeElement;
+        expect(
+            compiled
+                .querySelector('[data-player-container]')
+                .querySelectorAll('[data-player-link]')
+                .length
+        ).toEqual(
+            players[page].length
+        );
+    }));
+
+    it('should render the next button if there are more players', async(() => {
+        const page = 1;
+        makeTestBed(page);
+        let fixture = TestBed.createComponent(TeamComponent);
         fixture.whenStable().then(() => {
             fixture.detectChanges();
             let compiled = fixture.debugElement.nativeElement;
-            expect(compiled.querySelector('[data-player-container]').querySelectorAll('a').length).toEqual(players[page].length);
+            expect(compiled.querySelector('[data-next]')).toBeTruthy();
+        });
+    }));
+
+    it('should not render the previous button on the first page', async(() => {
+        const page = 1;
+        makeTestBed(page);
+        let fixture = TestBed.createComponent(TeamComponent);
+        fixture.whenStable().then(() => {
+            fixture.detectChanges();
+            let compiled = fixture.debugElement.nativeElement;
+            expect(compiled.querySelector('[data-previous]')).toBeNull();
+        });
+    }));
+
+    it('should render the previous button if it is not the first page', async(() => {
+        const page = players.length;
+        makeTestBed(page);
+        let fixture = TestBed.createComponent(TeamComponent);
+        fixture.whenStable().then(() => {
+            fixture.detectChanges();
+            let compiled = fixture.debugElement.nativeElement;
+            expect(compiled.querySelector('[data-previous]')).toBeTruthy();
         });
     }));
 

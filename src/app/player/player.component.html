@@ -4,7 +4,7 @@
   <li><a [routerLink]="'/'+this.routeData.apiRoute+'/players/'+slug+'/'+page">Players</a></li>
   <li class="active">Player</li>
 </ol>
-<div *ngFor="let player of player$ | async" class="panel panel-primary">
+<div *ngFor="let player of player$ | async" class="panel panel-primary" data-player-container>
     <div class="panel-heading">
         <h3 class="text-center">{{player.name}}</h3>
         <h4 class="text-center" *ngIf="player.nickname">({{player.nickname}})</h4>
@@ -107,17 +107,9 @@
                     {{player.handedness}}
                 </td>
             </tr>
-            <tr *ngIf="player.salary">
-                <td>
-                    Salary
-                </td>
-                <td>
-                    {{player.salary}} {{player.salary_currency}}
-                </td>
-            </tr>
             <tr *ngIf="player.humanized_salary">
                 <td>
-                    Humanized Salary
+                    Salary
                 </td>
                 <td>
                     {{player.humanized_salary}} {{player.salary_currency}}
