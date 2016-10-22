@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs/Observable';
+
 import { StatsService } from '../shared/stats.service';
 
 @Component({
     selector: 'app-player',
     templateUrl: './player.component.html',
-    styleUrls: ['./player.component.scss'],
-    providers: [StatsService]
+    styleUrls: ['./player.component.scss']
 })
 export class PlayerComponent implements OnInit {
 
@@ -17,18 +18,15 @@ export class PlayerComponent implements OnInit {
     page: number;
     playerSlug: string;
 
-    player$;
+    player$: Observable<{}[]>;
 
     constructor(
         private router: Router,
         private route: ActivatedRoute,
         private statsService: StatsService
-    ) {
-        this.parseRouterData(route);
-        this.fetchTemplateData();
-    }
+    ) { }
 
-    parseRouterData(route: ActivatedRoute) {
+    parseRouterData(route: ActivatedRoute): void {
         route.data.subscribe((d) => {
             this.routeData = d;
         });
@@ -45,6 +43,9 @@ export class PlayerComponent implements OnInit {
         this.player$ = this.statsService.player(this.sport, this.slug, this.page, this.playerSlug);
     }
 
-    ngOnInit() { }
+    ngOnInit() {
+        this.parseRouterData(this.route);
+        this.fetchTemplateData();
+    }
 
 }

@@ -6,8 +6,8 @@ import 'rxjs/add/operator/filter';
 @Injectable()
 export class StatsService {
 
-    headers;
-    apiRoot;
+    headers: Headers;
+    apiRoot: string;
 
     constructor(private http: Http) {
         this.headers = new Headers();

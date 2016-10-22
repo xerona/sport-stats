@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { SportComponent } from './sport/sport.component';
 import { TeamComponent } from './team/team.component';
 import { PlayerComponent } from './player/player.component';
+import { StatsService } from './shared/stats.service';
 
 @NgModule({
     declarations: [
@@ -26,7 +27,9 @@ import { PlayerComponent } from './player/player.component';
         HttpModule,
         appRoutes
     ],
-    providers: [],
+    providers: [
+        StatsService
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

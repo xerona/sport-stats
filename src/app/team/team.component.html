@@ -3,18 +3,20 @@
   <li><a [routerLink]="'/'+this.routeData.apiRoute">Teams</a></li>
   <li class="active">Players</li>
 </ol>
-<div *ngFor="let player of players$ | async" class="col-md-3 col-md-4 col-sm-6 col-xs-12">
-    <a [routerLink]="player.slug">
-        {{player.name}}
-    </a>
-</div>
-<div *ngIf="players$ | async" class="col-sm-12">
-    <nav aria-label="...">
-      <ul class="pager">
-        <li *ngIf="page > 1"><a (click)="previous()">Previous</a></li>
-        <li *ngFor="let n of next$ | async">
-            <a (click)="next()">Next</a>
-        </li>
-      </ul>
-    </nav>
+<div data-player-container>
+    <div *ngFor="let player of players$ | async" class="col-md-3 col-md-4 col-sm-6 col-xs-12">
+        <a [routerLink]="'/'+this.sport+'/players/'+this.slug+'/'+this.page+'/'+player.slug">
+            {{player.name}}
+        </a>
+    </div>
+    <div *ngIf="players$ | async" class="col-sm-12">
+        <nav aria-label="...">
+          <ul class="pager">
+            <li *ngIf="page > 1"><a (click)="previous()">Previous</a></li>
+            <li *ngFor="let n of next$ | async">
+                <a (click)="next()">Next</a>
+            </li>
+          </ul>
+        </nav>
+    </div>
 </div>

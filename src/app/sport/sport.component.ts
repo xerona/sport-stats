@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs/Observable';
+
 import { StatsService } from '../shared/stats.service';
 
 
 @Component({
     selector: 'app-sport',
     templateUrl: './sport.component.html',
-    styleUrls: ['./sport.component.scss'],
-    providers: [StatsService]
+    styleUrls: ['./sport.component.scss']
 })
 export class SportComponent implements OnInit {
 
@@ -15,15 +16,12 @@ export class SportComponent implements OnInit {
 
     sport: string;
 
-    teams$;
+    teams$: Observable<{}[]>;
 
     constructor(
         private route: ActivatedRoute,
         private statsService: StatsService
-    ) {
-        this.parseRouterData(route);
-        this.fetchTemplateData();
-    }
+    ) { }
 
     parseRouterData(route: ActivatedRoute): void {
         route.data.subscribe((d) => {
@@ -36,5 +34,8 @@ export class SportComponent implements OnInit {
         this.teams$ = this.statsService.teams(this.sport);
     }
 
-    ngOnInit() { }
+    ngOnInit() {
+        this.parseRouterData(this.route);
+        this.fetchTemplateData();
+    }
 }

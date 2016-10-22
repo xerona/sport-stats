@@ -1,9 +1,11 @@
+/// <reference path="../../node_modules/@types/jasmine/index.d.ts" />
+
 import { TestBed, async } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { AppComponent } from './app.component';
-import { testRoutes } from '../test_helpers/tests.routes';
-import { getTestModule } from '../test_helpers/tests.module';
-import { BASEBALL, BASKETBALL, FOOTBALL, HOCKEY } from './api';
+import { getTestModule } from './tests.module';
+
 
 describe('App: SportStats', () => {
     beforeEach(() => {
@@ -12,8 +14,8 @@ describe('App: SportStats', () => {
                 AppComponent,
             ],
             imports: [
-                getTestModule(),
-                testRoutes
+                getTestModule({}),
+                RouterTestingModule
             ]
         });
     });
@@ -28,10 +30,10 @@ describe('App: SportStats', () => {
         let fixture = TestBed.createComponent(AppComponent);
         let app = fixture.debugElement.componentInstance;
         expect(app.sports).toEqual([
-            { name: 'Baseball', path: BASEBALL },
-            { name: 'Basketball', path: BASKETBALL },
-            { name: 'Football', path: FOOTBALL },
-            { name: 'Hockey', path: HOCKEY },
+            { name: 'Baseball', path: 'baseball/mlb' },
+            { name: 'Basketball', path: 'basketball/nba' },
+            { name: 'Football', path: 'football/nfl' },
+            { name: 'Hockey', path: 'hockey/nhl' },
         ]);
     }));
 

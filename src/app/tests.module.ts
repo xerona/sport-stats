@@ -19,19 +19,19 @@ class PlayerComponent { }
 
 
 
-const getTestModule = (
-    home = HomeComponent,
-    sport = SportComponent,
-    team = TeamComponent,
-    player = PlayerComponent
-) => {
+const getTestModule = ({
+    homeComponent = HomeComponent,
+    sportComponent = SportComponent,
+    teamComponent = TeamComponent,
+    playerComponent = PlayerComponent
+}) => {
     @NgModule({
-        declarations: [home, sport, team, player],
-        exports: [home, sport, team, player],
+        declarations: [homeComponent, sportComponent, teamComponent, playerComponent],
+        exports: [homeComponent, sportComponent, teamComponent, playerComponent],
     })
     class TestModule { }
 
-    return TestModule
+    return TestModule;
 };
 
 export {

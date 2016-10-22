@@ -1,27 +1,19 @@
 import { Routes } from '@angular/router';
-import { RouterModule } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { SportComponent } from './sport/sport.component';
-import { TeamComponent } from './team/team.component';
-import { PlayerComponent } from './player/player.component';
-
+import { RouterTestingModule } from '@angular/router/testing';
+import { HomeComponent, SportComponent, TeamComponent, PlayerComponent } from './tests.module';
 import { SportsService } from './shared/sports.service';
 
-const homeRoutes: Routes = [
-    // home
-    {
-        path: '',
-        component: HomeComponent
-    },
-    // gh-pages
-    {
-        path: 'sport-stats',
-        redirectTo: '',
-        component: HomeComponent
-    }
-];
-const getSportRoutes = (sports: {name: string, path: string}[]) => {
+
+export const getRoutes = ({
+    homeComponent = HomeComponent,
+    sportComponent = SportComponent,
+    teamComponent = TeamComponent,
+    playerComponent = PlayerComponent
+}) => {
+    const sports: {name: string, path: string}[] = (new SportsService()).getSports();
     const routes: Routes = [];
+    routes.push({path: '', component: homeComponent});
+    routes.push({path: 'sport-stats', redirectTo: '', component: homeComponent});
     for (let sport of sports) {
         const data = {apiRoute: sport.path};
         routes.push({
@@ -29,7 +21,7 @@ const getSportRoutes = (sports: {name: string, path: string}[]) => {
                 children: [
                     {
                         path: '',
-                        component: SportComponent,
+                        component: sportComponent,
                         data
                     }, {
                         path: 'players/:slug',
@@ -39,18 +31,18 @@ const getSportRoutes = (sports: {name: string, path: string}[]) => {
                                 children: [
                                     {
                                         path: '',
-                                        component: TeamComponent,
+                                        component: teamComponent,
                                         data
                                     }, {
                                         path: ':playerSlug',
-                                        component: PlayerComponent,
+                                        component: playerComponent,
                                         data
                                     }
                                 ]
                             }, {
                                 path: '',
                                 redirectTo: '1',
-                                component: TeamComponent,
+                                component: teamComponent,
                                 data
                             }
                         ]
@@ -59,8 +51,5 @@ const getSportRoutes = (sports: {name: string, path: string}[]) => {
             },
         );
     }
-    return routes;
-}
-
-const routes = [...homeRoutes, ...getSportRoutes((new SportsService()).getSports())];
-export const appRoutes = RouterModule.forRoot(routes);
+    return RouterTestingModule.withRoutes(routes);
+};
