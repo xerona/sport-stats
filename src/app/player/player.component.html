@@ -1,176 +1,178 @@
-<ol class="breadcrumb">
-  <li><a routerLink="/">Home</a></li>
-  <li><a [routerLink]="'/'+this.routeData.apiRoute">Teams</a></li>
-  <li><a [routerLink]="'/'+this.routeData.apiRoute+'/players/'+slug+'/'+page">Players</a></li>
-  <li class="active">Player</li>
-</ol>
-<div *ngFor="let player of player$ | async" class="panel panel-primary" data-player-container>
-    <div class="panel-heading">
-        <h3 class="text-center">{{player.name}}</h3>
-        <h4 class="text-center" *ngIf="player.nickname">({{player.nickname}})</h4>
+<div data-component="Player">
+    <ol class="breadcrumb">
+      <li><a routerLink="/">Home</a></li>
+      <li><a [routerLink]="'/'+this.routeData.apiRoute">Teams</a></li>
+      <li><a [routerLink]="'/'+this.routeData.apiRoute+'/players/'+slug+'/'+page">Players</a></li>
+      <li class="active">Player</li>
+    </ol>
+    <div *ngFor="let player of player$ | async" class="panel panel-primary" data-player-container>
+        <div class="panel-heading">
+            <h3 class="text-center">{{player.name}}</h3>
+            <h4 class="text-center" *ngIf="player.nickname">({{player.nickname}})</h4>
+        </div>
+        <table class="table table-striped">
+           <tbody>
+               <tr *ngIf="player.birth_date" data-player-birth-date>
+                   <td>
+                       Date of Birth:
+                   </td>
+                   <td>
+                       {{player.birth_date | date: 'shortDate'}}
+                   </td>
+               </tr>
+               <tr *ngIf="player.high_school" data-player-high-school>
+                   <td>
+                       High School:
+                   </td>
+                   <td>
+                       {{player.high_school}}
+                   </td>
+               </tr>
+               <tr *ngIf="player.city" data-player-city>
+                   <td>
+                       City:
+                   </td>
+                   <td>
+                       {{player.city}}
+                   </td>
+               </tr>
+               <tr *ngIf="player.state" data-player-state>
+                   <td>
+                       State:
+                   </td>
+                   <td>
+                       {{player.state}}
+                   </td>
+               </tr>
+               <tr *ngIf="player.country" data-player-country>
+                   <td>
+                       Country:
+                   </td>
+                   <td>
+                       {{player.country}}
+                   </td>
+               </tr>
+               <tr>
+                   <td>
+                       Active
+                    </td>
+                    <td>
+                        {{player.active}}
+                    </td>
+                </tr>
+                <tr *ngIf="player.sport === 'baseball' && player.bats !== 'bats_unknown'" data-player-bats>
+                    <td>
+                        Bats
+                    </td>
+                    <td>
+                        {{player.bats}}
+                    </td>
+                </tr>
+                <tr *ngIf="player.draft_overall_pick" data-player-draft-overall-pick>
+                    <td>
+                        Overall Draft Pick
+                    </td>
+                    <td>
+                        {{player.draft_overall_pick}}
+                    </td>
+                </tr>
+                <tr *ngIf="player.draft_round" data-player-draft-round>
+                    <td>
+                        Draft Round
+                    </td>
+                    <td>
+                        {{player.draft_round}}
+                    </td>
+                </tr>
+                <tr *ngIf="player.draft_season" data-player-draft-season>
+                    <td>
+                        Draft Season
+                    </td>
+                    <td>
+                        {{player.draft_season}}
+                    </td>
+                </tr>
+                <tr *ngIf="player.draft_team_name" data-player-draft-team-name>
+                    <td>
+                        Draft Team
+                    </td>
+                    <td>
+                        {{player.draft_team_name}}
+                    </td>
+                </tr>
+                <tr *ngIf="player.handedness" data-player-handedness>
+                    <td>
+                        Handedness
+                    </td>
+                    <td>
+                        {{player.handedness}}
+                    </td>
+                </tr>
+                <tr *ngIf="player.humanized_salary" data-player-humanized-salary>
+                    <td>
+                        Salary
+                    </td>
+                    <td>
+                        {{player.humanized_salary}} {{player.salary_currency}}
+                    </td>
+                </tr>
+                <tr *ngIf="player.position_name" data-player-position-name>
+                    <td>
+                        Position
+                    </td>
+                    <td>
+                        {{player.position_name}} ({{player.position_abbreviation}})
+                    </td>
+                </tr>
+                <tr *ngIf="player.pro_debut" data-player-pro-debut>
+                    <td>
+                        Pro Debut
+                    </td>
+                    <td>
+                        {{player.pro_debut | date: 'shortDate'}}
+                    </td>
+                </tr>
+                <tr *ngIf="player.school" data-player-school>
+                    <td>
+                        School
+                    </td>
+                    <td>
+                        {{player.school}}
+                    </td>
+                </tr>
+                <tr *ngIf="player.uniform_number" data-player-uniform-number>
+                    <td>
+                        Uniform Number
+                    </td>
+                    <td>
+                        {{player.uniform_number}}
+                    </td>
+                </tr>
+                <tr *ngIf="player.years_of_experience" data-player-years-of-experience>
+                    <td>
+                        Years of Experience
+                    </td>
+                    <td>
+                        {{player.years_of_experience}}
+                    </td>
+                </tr>
+                <tr *ngIf="player.height" data-player-height>
+                    <td class="col-sm-3">
+                        Height
+                    </td>
+                    <td class="col-sm-3">
+                        {{player.height}} {{player.unit_of_height}}
+                    </td>
+                </tr>
+                <tr *ngIf="player.weight" data-player-weight>
+                    <td class="col-sm-3">
+                        Weight
+                    </td>
+                    <td class="col-sm-3">
+                        {{player.weight}} {{player.unit_of_weight}}
+                    </td>
+                </tr>
+           </tbody>
+       </table>
     </div>
-    <table class="table table-striped">
-       <tbody>
-           <tr *ngIf="player.birth_date">
-               <td>
-                   Date of Birth:
-               </td>
-               <td>
-                   {{player.birth_date | date: 'shortDate'}}
-               </td>
-           </tr>
-           <tr *ngIf="player.high_school">
-               <td>
-                   High School:
-               </td>
-               <td>
-                   {{player.high_school}}
-               </td>
-           </tr>
-           <tr *ngIf="player.city">
-               <td>
-                   City:
-               </td>
-               <td>
-                   {{player.city}}
-               </td>
-           </tr>
-           <tr *ngIf="player.state">
-               <td>
-                   State:
-               </td>
-               <td>
-                   {{player.state}}
-               </td>
-           </tr>
-           <tr *ngIf="player.country">
-               <td>
-                   Country:
-               </td>
-               <td>
-                   {{player.country}}
-               </td>
-           </tr>
-           <tr>
-               <td>
-                   Active
-                </td>
-                <td>
-                    {{player.active}}
-                </td>
-            </tr>
-            <tr *ngIf="player.sport === 'baseball'">
-                <td>
-                    Bats
-                </td>
-                <td>
-                    {{player.bats}}
-                </td>
-            </tr>
-            <tr *ngIf="player.draft_overall_pick">
-                <td>
-                    Overall Draft Pick
-                </td>
-                <td>
-                    {{player.draft_overall_pick}}
-                </td>
-            </tr>
-            <tr *ngIf="player.draft_round">
-                <td>
-                    Draft Round
-                </td>
-                <td>
-                    {{player.draft_round}}
-                </td>
-            </tr>
-            <tr *ngIf="player.draft_season">
-                <td>
-                    Draft Season
-                </td>
-                <td>
-                    {{player.draft_season}}
-                </td>
-            </tr>
-            <tr *ngIf="player.draft_team_name">
-                <td>
-                    Draft Team
-                </td>
-                <td>
-                    {{player.draft_team_name}}
-                </td>
-            </tr>
-            <tr *ngIf="player.handedness">
-                <td>
-                    Handedness
-                </td>
-                <td>
-                    {{player.handedness}}
-                </td>
-            </tr>
-            <tr *ngIf="player.humanized_salary">
-                <td>
-                    Salary
-                </td>
-                <td>
-                    {{player.humanized_salary}} {{player.salary_currency}}
-                </td>
-            </tr>
-            <tr *ngIf="player.position_name">
-                <td>
-                    Position
-                </td>
-                <td>
-                    {{player.position_name}} ({{player.position_abbreviation}})
-                </td>
-            </tr>
-            <tr *ngIf="player.pro_debut">
-                <td>
-                    Pro Debut
-                </td>
-                <td>
-                    {{player.pro_debut | date: 'shortDate'}}
-                </td>
-            </tr>
-            <tr *ngIf="player.school">
-                <td>
-                    School
-                </td>
-                <td>
-                    {{player.school}}
-                </td>
-            </tr>
-            <tr *ngIf="player.uniform_number">
-                <td>
-                    Uniform Number
-                </td>
-                <td>
-                    {{player.uniform_number}}
-                </td>
-            </tr>
-            <tr *ngIf="player.years_of_experience">
-                <td>
-                    Years of Experience
-                </td>
-                <td>
-                    {{player.years_of_experience}}
-                </td>
-            </tr>
-            <tr *ngIf="player.height">
-                <td class="col-sm-3">
-                    Height
-                </td>
-                <td class="col-sm-3">
-                    {{player.height}} {{player.unit_of_height}}
-                </td>
-            </tr>
-            <tr *ngIf="player.weight">
-                <td class="col-sm-3">
-                    Weight
-                </td>
-                <td class="col-sm-3">
-                    {{player.weight}} {{player.unit_of_weight}}
-                </td>
-            </tr>
-       </tbody>
-   </table>
 </div>
