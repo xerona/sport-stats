@@ -39,5 +39,5 @@ To get more help on the `angular-cli` use `ng --help` or go check out the [Angul
 [travis-badge-url]: https://travis-ci.org/xerona/sport-stats
 [david-badge]: https://david-dm.org/xerona/sport-stats.svg
 [david-badge-url]: https://david-dm.org/xerona/sport-stats
-[david-dev-badge]: https://david-dm.org/angular/angular-cli/dev-status.svg
-[david-dev-badge-url]: https://david-dm.org/angular/angular-cli?type=dev
+[david-dev-badge]: https://david-dm.org/xerona/sport-stats/dev-status.svg
+[david-dev-badge-url]: https://david-dm.org/xerona/sport-stats?type=dev
