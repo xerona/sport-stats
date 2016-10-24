@@ -1,7 +1,9 @@
 language: node_js
 node_js: "6"
 
-install: npm install
+before_install: npm install -g yarnpkg
+
+install: yarn
 
 script: npm test
 

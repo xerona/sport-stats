@@ -17,7 +17,11 @@
                        Date of Birth:
                    </td>
                    <td>
-                       {{player.birth_date | date: 'shortDate'}}
+                       <!-- TODO:
+                            Make date pipe that works in all browsers.
+                        -->
+                        <!-- {{player.birth_date | date: 'shortDate'}} -->
+                       {{player.birth_date}}
                    </td>
                </tr>
                <tr *ngIf="player.high_school" data-player-high-school>
@@ -129,7 +133,7 @@
                         Pro Debut
                     </td>
                     <td>
-                        {{player.pro_debut | date: 'shortDate'}}
+                        {{player.pro_debut}}
                     </td>
                 </tr>
                 <tr *ngIf="player.school" data-player-school>
