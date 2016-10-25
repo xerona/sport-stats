@@ -1,14 +1,18 @@
 language: node_js
 node_js: "6"
 
-before_install: npm install -g yarn
+before_install:
+    - npm install -g yarn
 
 install: yarn
 
-script: npm test
+script:
+    - ng serve &
+    - npm test
+    - npm run e2e-ci
 
-# addons:
-#   sauce_connect:
-#     username: "xerona"
-#     access_key:
-#         secure: "WEL0GvFLY8LBwbrV/pC9xcJUkIrqGKePaTB21NPMF4mkDGoFngYnDriEToyx5oC4Vce1CFAaoRpMZeFAMcRbaBjwSZmACc4NPgXPjbimmpGQuhQJ43fBVGqDBdc15OIgkIg4Qva60P9ORRoGTjeLU3zSHWYbug65mauyQON3CpR/6ZlMV3cuPSd5v1UK3LgoYHIRJQzrObqCKAzTpfOPsz1y7sBfXuelxUdMZQN6LI7Lh4h3xn1FwUnhnQEPcc4C1dmfywuSFFIXQfzLlrsJlUX+mfkSz9PbDlRBXb1Uvtb2WydaXiKCPyW8cTODKjobDMqePPGBdlntBBG0qCxL5fTffkPW4isIjKISV0S3BKYyc2MhHOkYuAG82u2waMU97/PtAoVO4w693XEwOXK7b5XQLruS8rnfCPHyyuyCHzj2Acjt+ur0Zcnd41y2671mmEpp1FaSbtR230bkLgc6J2u7iazqfcVBmzRfCftIEI2TKac+84WoEm4nEuILbcyl8AMKr+6aPJG4fy+ifVj36OPGoHHjgAGpQJV/DWSRktPj5QhkKY9BzVvrd4AAvTJjAPTcZrOZ2EJkPKPTblouh49zLGURVpN6ys1f28uiwlRpdC0mimuBV7KYHtuVmbtz4vLyMeqNp0jBG/FgOyaAYicA6vm+oCVOfu76QuIwj78="
+addons:
+  sauce_connect:
+    username: "xerona"
+    access_key:
+        secure: "WEL0GvFLY8LBwbrV/pC9xcJUkIrqGKePaTB21NPMF4mkDGoFngYnDriEToyx5oC4Vce1CFAaoRpMZeFAMcRbaBjwSZmACc4NPgXPjbimmpGQuhQJ43fBVGqDBdc15OIgkIg4Qva60P9ORRoGTjeLU3zSHWYbug65mauyQON3CpR/6ZlMV3cuPSd5v1UK3LgoYHIRJQzrObqCKAzTpfOPsz1y7sBfXuelxUdMZQN6LI7Lh4h3xn1FwUnhnQEPcc4C1dmfywuSFFIXQfzLlrsJlUX+mfkSz9PbDlRBXb1Uvtb2WydaXiKCPyW8cTODKjobDMqePPGBdlntBBG0qCxL5fTffkPW4isIjKISV0S3BKYyc2MhHOkYuAG82u2waMU97/PtAoVO4w693XEwOXK7b5XQLruS8rnfCPHyyuyCHzj2Acjt+ur0Zcnd41y2671mmEpp1FaSbtR230bkLgc6J2u7iazqfcVBmzRfCftIEI2TKac+84WoEm4nEuILbcyl8AMKr+6aPJG4fy+ifVj36OPGoHHjgAGpQJV/DWSRktPj5QhkKY9BzVvrd4AAvTJjAPTcZrOZ2EJkPKPTblouh49zLGURVpN6ys1f28uiwlRpdC0mimuBV7KYHtuVmbtz4vLyMeqNp0jBG/FgOyaAYicA6vm+oCVOfu76QuIwj78="
