@@ -1,18 +1,20 @@
 language: node_js
-node_js: "6"
-
+node_js: '6'
 before_install:
-    - npm install -g yarn
-
+- npm install -g yarn
 install: yarn
-
 script:
-    - ng serve --prod &
-    - npm test
-    - npm run e2e-ci
-
+- ng serve --prod &
+- npm test
+- npm run e2e-ci
+after_success:
+- test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "master" && bash deploy.sh
 addons:
   sauce_connect:
-    username: "xerona"
+    username: xerona
     access_key:
-        secure: "WEL0GvFLY8LBwbrV/pC9xcJUkIrqGKePaTB21NPMF4mkDGoFngYnDriEToyx5oC4Vce1CFAaoRpMZeFAMcRbaBjwSZmACc4NPgXPjbimmpGQuhQJ43fBVGqDBdc15OIgkIg4Qva60P9ORRoGTjeLU3zSHWYbug65mauyQON3CpR/6ZlMV3cuPSd5v1UK3LgoYHIRJQzrObqCKAzTpfOPsz1y7sBfXuelxUdMZQN6LI7Lh4h3xn1FwUnhnQEPcc4C1dmfywuSFFIXQfzLlrsJlUX+mfkSz9PbDlRBXb1Uvtb2WydaXiKCPyW8cTODKjobDMqePPGBdlntBBG0qCxL5fTffkPW4isIjKISV0S3BKYyc2MhHOkYuAG82u2waMU97/PtAoVO4w693XEwOXK7b5XQLruS8rnfCPHyyuyCHzj2Acjt+ur0Zcnd41y2671mmEpp1FaSbtR230bkLgc6J2u7iazqfcVBmzRfCftIEI2TKac+84WoEm4nEuILbcyl8AMKr+6aPJG4fy+ifVj36OPGoHHjgAGpQJV/DWSRktPj5QhkKY9BzVvrd4AAvTJjAPTcZrOZ2EJkPKPTblouh49zLGURVpN6ys1f28uiwlRpdC0mimuBV7KYHtuVmbtz4vLyMeqNp0jBG/FgOyaAYicA6vm+oCVOfu76QuIwj78="
+      secure: WEL0GvFLY8LBwbrV/pC9xcJUkIrqGKePaTB21NPMF4mkDGoFngYnDriEToyx5oC4Vce1CFAaoRpMZeFAMcRbaBjwSZmACc4NPgXPjbimmpGQuhQJ43fBVGqDBdc15OIgkIg4Qva60P9ORRoGTjeLU3zSHWYbug65mauyQON3CpR/6ZlMV3cuPSd5v1UK3LgoYHIRJQzrObqCKAzTpfOPsz1y7sBfXuelxUdMZQN6LI7Lh4h3xn1FwUnhnQEPcc4C1dmfywuSFFIXQfzLlrsJlUX+mfkSz9PbDlRBXb1Uvtb2WydaXiKCPyW8cTODKjobDMqePPGBdlntBBG0qCxL5fTffkPW4isIjKISV0S3BKYyc2MhHOkYuAG82u2waMU97/PtAoVO4w693XEwOXK7b5XQLruS8rnfCPHyyuyCHzj2Acjt+ur0Zcnd41y2671mmEpp1FaSbtR230bkLgc6J2u7iazqfcVBmzRfCftIEI2TKac+84WoEm4nEuILbcyl8AMKr+6aPJG4fy+ifVj36OPGoHHjgAGpQJV/DWSRktPj5QhkKY9BzVvrd4AAvTJjAPTcZrOZ2EJkPKPTblouh49zLGURVpN6ys1f28uiwlRpdC0mimuBV7KYHtuVmbtz4vLyMeqNp0jBG/FgOyaAYicA6vm+oCVOfu76QuIwj78=
+env:
+  global:
+  - GITHUB_REPO: xerona/sport-stats
+  - secure: AkVKFICrqBpurLYbqjyynrKL7x0AwVxLnI/B8bbDTAuH5QZe02T6i7SCbkXatnA1lbBYMst8yN8H89OL+h67FzkUG8R46z4ko8fAjeXqLCny9h3WC1wl/mcpGyau32t6kQP7RZRlQJn9dTGebr1gtlKZZBhwDV/ryU3odS+SCAXx3FVYWJKlRQ8veJKN9VP3IPgHamZwv0NWKopJWr2ZWyZ+nrj7dzRsodrGGZixCx8ewuIbFlfOA3nkJ3XmUBitIlC+gFD736uuZITc5H/EoutwI4gWtl6eVcE6bg5uojoxjUNonrd4lbj2oUlgY5JkTPsd00tn0wb+EAxLYTouHiocKRTHW7bV7Aup6rSKjVoUj18bh3nlJJiUCUbRX8Mk+M821IxGM/2gHWAKE1ufzxG+mn1Y3aawRQjCfu0o3FNyt9aI2iowm6CFyXValtEm0rsT/PzofC/9SXPZPojFwsEmG8Q9JHOUbrqm/d/fp8d2AKBbxdz5GIwSNg4SSf9/msbhGnwqHSBqQbxqY6rpncUzfFL9Peqkspl75U7W3FRgX93/5TxjIiwyHBVQFjTKRQLGh66PenboMkvEhC3szG01wEAty16HPN86VhtuKi51z5FNjS7ZL/tx80cFDf872ktrdVPC/fTTw2wV9x30uXi1QxnFQkxHTs2eZ7N9++Q=
