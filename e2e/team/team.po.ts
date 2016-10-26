@@ -27,7 +27,7 @@ export class TeamComponentPage {
     }
 
     clickAPlayerLink() {
-        element(by.css('div[data-player-container]')).all(by.tagName('a')).first().click();
+        element(by.css('div[data-player-container]')).all(by.css('tr[data-player-link]')).first().click();
     }
 
     isNextButtonAvailable() {

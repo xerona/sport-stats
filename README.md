@@ -34,6 +34,13 @@ Run `ng github-pages:deploy` to deploy to Github Pages.
 
 To get more help on the `angular-cli` use `ng --help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
+## To Do
+
+Move breadcrumbs to single component
+Load sport component as hover/dropdown on each tab.
+Make multi browser friendly date pipe.
+Research caching api results or fetch in background.
+
 
 [travis-badge]: https://travis-ci.org/xerona/sport-stats.svg?branch=master
 [travis-badge-url]: https://travis-ci.org/xerona/sport-stats
