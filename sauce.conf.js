@@ -5,11 +5,33 @@ exports.config = {
     // saucelabs
     sauceUser: process.env.SAUCE_USERNAME,
     sauceKey: process.env.SAUCE_ACCESS_KEY,
-    multiCapabilities: [{
-        'browserName': 'chrome',
-        'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
-        'build': process.env.TRAVIS_BUILD_NUMBER
-    }],
+    multiCapabilities: [
+        {
+            'name': 'Chrome',
+            'browserName': 'chrome',
+            'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
+            'build': process.env.TRAVIS_BUILD_NUMBER
+        }, {
+            'name': 'Firefox',
+            'browserName': 'firefox',
+            'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
+            'build': process.env.TRAVIS_BUILD_NUMBER
+        }, {
+            'name': 'IE 10',
+            'browserName': 'internet explorer',
+            'version': '10.0',
+            'tags': ['ie'],
+            'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
+            'build': process.env.TRAVIS_BUILD_NUMBER
+        }, {
+            'name': 'IE 11',
+            'browserName': 'internet explorer',
+            'version': '11.0',
+            'tags': ['ie'],
+            'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
+            'build': process.env.TRAVIS_BUILD_NUMBER
+        }
+    ],
     getPageTimeout: 40000,
     baseUrl: 'http://localhost:4200/',
 
@@ -25,12 +47,10 @@ exports.config = {
         includeStackTrace: true
     },
     useAllAngular2AppRoots: true,
-    beforeLaunch: function() {
+    onPrepare: function() {
         require('ts-node').register({
             project: 'e2e'
         });
-    },
-    onPrepare: function() {
         jasmine.getEnv().addReporter(new SpecReporter());
     }
 };
