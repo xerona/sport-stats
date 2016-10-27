@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
-import { HomeComponent, SportComponent, TeamComponent, PlayerComponent } from './tests.module';
+import { HomeComponent, SportComponent, TeamComponent, PlayerComponent } from './tests-module';
 import { SportsService } from './shared/sports.service';
 
 

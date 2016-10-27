@@ -4,7 +4,7 @@ import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { AppComponent } from './app.component';
-import { getTestModule } from './tests.module';
+import { getTestModule } from './tests-module';
 
 
 describe('App: SportStats', () => {
