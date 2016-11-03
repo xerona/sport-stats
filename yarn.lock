@@ -71,19 +71,23 @@
   dependencies:
     "@angular-cli/ast-tools" "^1.0.0"
 
-"@types/jasmine@^2.2.30", "@types/jasmine@^2.2.31":
+"@types/jasmine@^2.2.30":
   version "2.5.35"
   resolved "https://registry.yarnpkg.com/@types/jasmine/-/jasmine-2.5.35.tgz#5566406dc8417d380d6c2f9562ec3c71ec28ef78"
 
-"@types/node@^6.0.35":
-  version "6.0.45"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-6.0.45.tgz#c4842a9d653d767831e4ff495b6008cc0d579966"
+"@types/jasmine@^2.5.36":
+  version "2.5.37"
+  resolved "https://registry.yarnpkg.com/@types/jasmine/-/jasmine-2.5.37.tgz#15f16040b1106941ec4aeefa3cd9c55342a0dcbb"
 
-"@types/q@^0.0.30":
-  version "0.0.30"
-  resolved "https://registry.yarnpkg.com/@types/q/-/q-0.0.30.tgz#fd7ee1af40f21cdd1f519268073b3432ec17d7a3"
+"@types/node@^6.0.46":
+  version "6.0.46"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-6.0.46.tgz#8d9e48572831f05b11cc4c793754d43437219d62"
 
-"@types/selenium-webdriver@~2.53.30":
+"@types/q@^0.0.32":
+  version "0.0.32"
+  resolved "https://registry.yarnpkg.com/@types/q/-/q-0.0.32.tgz#bd284e57c84f1325da702babfc82a5328190c0c5"
+
+"@types/selenium-webdriver@~2.53.31":
   version "2.53.33"
   resolved "https://registry.yarnpkg.com/@types/selenium-webdriver/-/selenium-webdriver-2.53.33.tgz#64672bae3acedf9d9e6bcfa8bdb7c37497751c3d"
 
@@ -5030,6 +5034,27 @@ node-sass@^3.10.1:
     request "^2.61.0"
     sass-graph "^2.1.1"
 
+node-sass@^3.11.1:
+  version "3.11.1"
+  resolved "https://registry.yarnpkg.com/node-sass/-/node-sass-3.11.1.tgz#0b25699663cc9d616e8c6fb874e7d9b25e5a8e20"
+  dependencies:
+    async-foreach "^0.1.3"
+    chalk "^1.1.1"
+    cross-spawn "^3.0.0"
+    gaze "^1.0.0"
+    get-stdin "^4.0.1"
+    glob "^7.0.3"
+    in-publish "^2.0.0"
+    lodash.assign "^4.2.0"
+    lodash.clonedeep "^4.3.2"
+    meow "^3.7.0"
+    mkdirp "^0.5.1"
+    nan "^2.3.2"
+    node-gyp "^3.3.1"
+    npmlog "^4.0.0"
+    request "^2.61.0"
+    sass-graph "^2.1.1"
+
 node-uuid@^1.4.3, node-uuid@~1.4.7:
   version "1.4.7"
   resolved "https://registry.yarnpkg.com/node-uuid/-/node-uuid-1.4.7.tgz#6da5a17668c4b3dd59623bda11cf7fa4c1f60a6f"
@@ -5910,14 +5935,14 @@ protractor@^3.3.0:
     selenium-webdriver "2.52.0"
     source-map-support "~0.4.0"
 
-protractor@4.0.9:
-  version "4.0.9"
-  resolved "https://registry.yarnpkg.com/protractor/-/protractor-4.0.9.tgz#152f72e3729b2576226e370dc308699cccfa77ba"
+protractor@4.0.10:
+  version "4.0.10"
+  resolved "https://registry.yarnpkg.com/protractor/-/protractor-4.0.10.tgz#12a3cd542c0f44d784f3b43368bc37ea5fb0e350"
   dependencies:
-    "@types/jasmine" "^2.2.31"
-    "@types/node" "^6.0.35"
-    "@types/q" "^0.0.30"
-    "@types/selenium-webdriver" "~2.53.30"
+    "@types/jasmine" "^2.5.36"
+    "@types/node" "^6.0.46"
+    "@types/q" "^0.0.32"
+    "@types/selenium-webdriver" "~2.53.31"
     adm-zip "0.4.7"
     chalk "^1.1.3"
     glob "^7.0.3"
@@ -5928,7 +5953,7 @@ protractor@4.0.9:
     saucelabs "~1.3.0"
     selenium-webdriver "2.53.3"
     source-map-support "~0.4.0"
-    webdriver-manager "^10.2.2"
+    webdriver-manager "^10.2.6"
 
 proxy-addr@~1.1.2:
   version "1.1.2"
@@ -7448,9 +7473,9 @@ ts-loader@^0.8.2:
     object-assign "^2.0.0"
     semver "^5.0.1"
 
-ts-node@1.6.0:
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/ts-node/-/ts-node-1.6.0.tgz#a1eb6a62eb0c4011a66fb322b2687eea00866ee7"
+ts-node@1.6.1:
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/ts-node/-/ts-node-1.6.1.tgz#254dc569bf96794c39a9313ac9249d2efc522e5c"
   dependencies:
     arrify "^1.0.0"
     chalk "^1.1.1"
@@ -7551,6 +7576,10 @@ typedoc@^0.4.2:
     typedoc-default-themes "^0.4.0"
     typescript "1.8.10"
 
+typescript@^2.0.6:
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.0.6.tgz#5385499ac9811508c2c43e0ea07a1ddca435e111"
+
 typescript@~2.0.3:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.0.3.tgz#33dec9eae86b8eee327dd419ca050c853cabd514"
@@ -7558,10 +7587,6 @@ typescript@~2.0.3:
 typescript@1.8.10:
   version "1.8.10"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-1.8.10.tgz#b475d6e0dff0bf50f296e5ca6ef9fbb5c7320f1e"
-
-typescript@2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.0.2.tgz#a63f848074498a4dfa7f293afda0835d501d9540"
 
 uc.micro@^1.0.0, uc.micro@^1.0.1:
   version "1.0.3"
@@ -7806,9 +7831,9 @@ wcwidth@^1.0.0:
   dependencies:
     defaults "^1.0.3"
 
-webdriver-manager@^10.2.2:
-  version "10.2.4"
-  resolved "https://registry.yarnpkg.com/webdriver-manager/-/webdriver-manager-10.2.4.tgz#b61b7aa9f8e685311155a9efc6d8f8650c4eb5c7"
+webdriver-manager@^10.2.6:
+  version "10.2.6"
+  resolved "https://registry.yarnpkg.com/webdriver-manager/-/webdriver-manager-10.2.6.tgz#6c02625fbaa97d1f6105edc7f22cdcf5caee038c"
   dependencies:
     adm-zip "^0.4.7"
     chalk "^1.1.1"
